@@ -9,8 +9,7 @@ public class lettoreMultimediale {
 		String arrDispositivo[] = {"1","2","3"};
 	
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("**********        Cliente                         **********");
-		System.out.println("*                                                                  *");
+		
 		System.out.println("*  Scegli dispositivo: immagine, audio, video  *");
 		System.out.println("*                                                                  *");
 //		TipoDispositivo dispositivo = TipoDispositivo.valueOf(scanner.next());
@@ -35,8 +34,14 @@ public class lettoreMultimediale {
 	Audio audio = new Audio (titoloInput, durata, volume);
 	Video video = new Video (titoloInput, durata, luminosita, volume);
 	
-	
+	esecuzione(dispositivo,durata, img, video,audio);
+	}
 	//funzione:  controllo sul tipo di dispositivo scelto per far partire metodo play() o show()
+	
+	public static void esecuzione(String dispositivo, int durata, Immagine img,Video video,Audio audio) { 
+		
+	
+	
 	while (durata !=0) {
 		
 	for(int i = 1; i<=durata; i++) {
@@ -54,12 +59,11 @@ public class lettoreMultimediale {
 			
 		}	
 	}
-		
+	}	
+	
+	
+	
 	
 	}
-	
-	}
-	
-	
 	
 }
