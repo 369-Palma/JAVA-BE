@@ -62,7 +62,7 @@ public class Video {
 		 for(int j = 0; j <= this.durata; j++) { 
 		 
 			for (int i=1; i <= this.volume; i++) {
-				volumeStringa = volumeStringa + " " + "!" + "/n/n";
+				volumeStringa = volumeStringa + " " + "!";
 				System.out.println(volumeStringa);
 			}
 		 }
