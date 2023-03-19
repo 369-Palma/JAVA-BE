@@ -40,8 +40,8 @@ public void riduciLuminosita() {
 	this.luminosita--;
 }
 
-
-public String stampaLuminosita() {
+//metodo per stampare la luminosità 
+public void show() {
 String title = this.titolo;
  String lum= "";
  
@@ -49,13 +49,13 @@ for (int i=1; i <= this.luminosita; i++) {
 	lum = lum + "" + "*";
 }
 
-return title + lum;
+System.out.println(title + "" + lum);
 }
 
-//metodo per stampare la luminosità 
 
-public String show() {
-		return this.titolo + stampaLuminosita();
-}
+
+//public String show() {
+//		return this.titolo + stampaLuminosita();
+//}
 
 }
