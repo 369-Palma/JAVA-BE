@@ -59,7 +59,7 @@ public class Audio {
 				System.out.println(title);
 			}
 				
-		 for(int j = 0; j <= this.durata; j++) { 
+		 for(int j = 1; j <= this.durata; j++) { 
 		 System.out.println(title + "" + vol);
 			}				
 		 }

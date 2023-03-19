@@ -61,19 +61,20 @@ public class Video {
 			 String vol="";
 			 String lum = "";
 			 
-			 	for (int i=0; i <= this.volume; i++) {
+			 	for (int i=1; i <= this.volume; i++) {
 						vol = vol + " " + "!" ;
-					System.out.println(title);
+					//System.out.println(title);
 				}
 			 	
-			 	for (int j=0; j <=this.luminosita; j++) {
+			 	for (int j=1; j <=this.luminosita; j++) {
 			 		lum = lum + "" + "*";
 			 	}
 					
-			 for(int j = 0; j <= this.durata; j++) { 
-			 System.out.println(title + "" + vol);
-			 System.out.println(lum);
-				}				
+			 for(int j = 1; j <= this.durata; j++) { 
+			 System.out.println(title + "" + vol);			 
+				}
+			 
+			 System.out.println(lum);			
 			 }
 		
 		
@@ -87,19 +88,19 @@ public class Video {
 		}
 
 
-		public String stampaLuminosita() {
-		 String luminositaStringa= "";
-		for (int i=0; i <= this.luminosita; i++) {
-			luminositaStringa = luminositaStringa + "*";
-		}
-		return luminositaStringa;
-		}
+//		public String stampaLuminosita() {
+//		 String luminositaStringa= "";
+//		for (int i=0; i <= this.luminosita; i++) {
+//			luminositaStringa = luminositaStringa + "*";
+//		}
+//		return luminositaStringa;
+//		}
 
 		//metodo per stampare la luminosità 
 
-		public String show() {
-				return this.titolo + stampaLuminosita();
-		}
+//		public String show() {
+//				return this.titolo + stampaLuminosita();
+//		}
 
 	}
 

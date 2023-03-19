@@ -45,7 +45,7 @@ public String stampaLuminosita() {
 String title = this.titolo;
  String lum= "";
  
-for (int i=0; i <= this.luminosita; i++) {
+for (int i=1; i <= this.luminosita; i++) {
 	lum = lum + "" + "*";
 }
 

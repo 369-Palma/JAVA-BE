@@ -121,7 +121,6 @@ public static void eseguiRichiesta() {
 				scanner3.close();
 				
 				Video video = new Video (titoloInput3, durata3, luminosita3, volume3);
-				video.show();
 				video.play();
 				break;
 				
