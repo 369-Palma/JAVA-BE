@@ -63,7 +63,6 @@ public class Video {
 			 
 			 	for (int i=1; i <= this.volume; i++) {
 						vol = vol + " " + "!" ;
-					//System.out.println(title);
 				}
 			 	
 			 	for (int j=1; j <=this.luminosita; j++) {
@@ -88,19 +87,6 @@ public class Video {
 		}
 
 
-//		public String stampaLuminosita() {
-//		 String luminositaStringa= "";
-//		for (int i=0; i <= this.luminosita; i++) {
-//			luminositaStringa = luminositaStringa + "*";
-//		}
-//		return luminositaStringa;
-//		}
-
-		//metodo per stampare la luminosità 
-
-//		public String show() {
-//				return this.titolo + stampaLuminosita();
-//		}
 
 	}
 

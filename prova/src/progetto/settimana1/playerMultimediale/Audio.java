@@ -56,7 +56,7 @@ public class Audio {
 		 String vol="";
 		 	for (int i=1; i <= this.volume; i++) {
 					vol = vol + " " + "!" ;
-				System.out.println(title);
+				
 			}
 				
 		 for(int j = 1; j <= this.durata; j++) { 
