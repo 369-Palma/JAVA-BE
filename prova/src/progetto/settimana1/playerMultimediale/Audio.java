@@ -52,17 +52,19 @@ public class Audio {
 
 	public void play() {
 		
-		 String volumeStringa= this.titolo;
-		 
-		 for(int j = 0; j <= this.durata; j++) { 
-		 
-			for (int i=1; i <= this.volume; i++) {
-				volumeStringa = volumeStringa + " " + "!" ;
-				System.out.println(volumeStringa);
+		 String title= this.titolo;
+		 String vol="";
+		 	for (int i=1; i <= this.volume; i++) {
+					vol = vol + " " + "!" ;
+				System.out.println(title);
 			}
+				
+		 for(int j = 0; j <= this.durata; j++) { 
+		 System.out.println(title + "" + vol);
+			}				
 		 }
 		
-		}
+		
 	
 }
 	

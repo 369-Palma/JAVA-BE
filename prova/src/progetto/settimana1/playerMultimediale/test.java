@@ -1,44 +1,41 @@
 package progetto.settimana1.playerMultimediale;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class Multimedia {
-
+public class test {
+static int  arrDispositivi[] = new int[5];
+		static int [] newArrDispositivi[];
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-			System.out.println("*                                                                  *");
-			System.out.println("*  Configurazione dispositivi *");
-			System.out.println("* *");	
-		scanner.close();
 		
-		arrayScelta();
+		getDispositivi();
 		eseguiRichiesta();
 	}
 	
-//funzioni
-	static int dispositivo;
-	static int [] arrDispositivi;
-	static int [] newArrDispositivi;
-	public static int[] arrayScelta() {
-		for(int i=0; i<=5; i++) {
-	Scanner scanner = new Scanner(System.in);
-	System.out.println("*  *");
-	System.out.println("*  Scegli un numero da 1 a 3 dove 1 è immagine, 2 è audio e 3 è video. Poi premi invio.*");
-	System.out.println("*   *");
+	//funzioni 
 	
-	dispositivo = scanner.nextInt();
-	
-	
-	newArrDispositivi = new int [arrDispositivi.length +1];
-	
-	scanner.close();
-
-	}
-		return newArrDispositivi;
+	//crea Array
+	public static int[] getDispositivi() {
+		for(int i=0; i<=4; i++) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Scegli un numero da 1 a 3 dove 1 è immagine, 2 è audio e 3 è video. Poi premi invio.");
+		System.out.println("");
 		
-	}
-
-	public static void eseguiRichiesta() {
+		int dispositivo = scanner.nextInt();
+		System.out.println("il numero inserito è: " + dispositivo);
+		arrDispositivi[i] = dispositivo;
+		}
+	
+		System.out.println(Arrays.toString(arrDispositivi));
+		System.out.println("Dispositivi configurati!");
+		
+		return arrDispositivi;
+		
+		}
+	
+	// Eseguzione dei dispositivi su richiesta dell'utente
+	
+public static void eseguiRichiesta() {
 		
 		int res=-1;
 		while(res!=0 || res>5) {
@@ -48,7 +45,7 @@ public class Multimedia {
 			System.out.println("*                                                                  *");
 			res = scanner.nextInt();
 			
-			switch(newArrDispositivi[res]) {
+			switch(arrDispositivi[res]) {
 			
 			case 1:
 				Scanner scanner1 = new Scanner(System.in);
@@ -92,7 +89,7 @@ public class Multimedia {
 				System.out.println("*  Regola il volume inserendo un numero e premi invio  *");
 				System.out.println("*                                                                  *");
 				int volume = scanner2.nextInt();
-				scanner2.close();
+				// scanner2.close();
 				Audio audio = new Audio (titoloInput2, durata, volume);
 				audio.play();
 				break;
@@ -136,6 +133,5 @@ public class Multimedia {
 			scanner.close();
 		}
 	}
-	
-	
+
 }

@@ -42,11 +42,14 @@ public void riduciLuminosita() {
 
 
 public String stampaLuminosita() {
- String luminositaStringa= "";
+String title = this.titolo;
+ String lum= "";
+ 
 for (int i=0; i <= this.luminosita; i++) {
-	luminositaStringa = luminositaStringa + "*";
+	lum = lum + "" + "*";
 }
-return luminositaStringa;
+
+return title + lum;
 }
 
 //metodo per stampare la luminosità 
