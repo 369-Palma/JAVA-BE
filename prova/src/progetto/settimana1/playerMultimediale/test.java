@@ -77,8 +77,6 @@ public static void eseguiRichiesta() {
 				
 				img.show();
 				
-				//res = 1;
-			
 				break;
 				
 				
@@ -105,7 +103,6 @@ public static void eseguiRichiesta() {
 				Audio audio = new Audio (titoloInput2, durata, volume);
 				audio.play();
 				
-				//res = 1;
 				
 				break;
 				
@@ -140,11 +137,8 @@ public static void eseguiRichiesta() {
 				
 				break;
 	
-					
-				
-					//res = 1;
 			}
-			//scanner10.close();
+			
 		}
 	}
 
