@@ -5,14 +5,14 @@ public class Audio {
 	private String titolo;
 	private int durata;
 	private int volume;
-	private int luminosita;
+	
 
 	//constructor
 	public Audio(String titolo, int durata, int vol) {
 		this.titolo = titolo;
 		this.durata = durata;
 		this.volume = vol;
-		this.luminosita = 0;
+		
 	}
 
 	//metodi
@@ -37,9 +37,6 @@ public class Audio {
 		volume = l;
 	}
 	
-	public int getLuminosita() {
-		return luminosita;
-	}
 
 	//funzionalità
 
