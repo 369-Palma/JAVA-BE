@@ -24,7 +24,7 @@ public class ContoCorrente {
 		}
 	}
 
-	static double restituisciSaldo() {
+	double restituisciSaldo() {
 		
 			return saldo;
 		
