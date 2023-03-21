@@ -4,11 +4,11 @@ public class BancaException extends Exception {
 private String message;
 	
 public BancaException(String msg) {
-super("Valore errato! " + msg);
+super();
 message = msg;
-	toString();
+	
 }
-public String toString(String msg) {
+public String toString() {
 	return message;
 }
 

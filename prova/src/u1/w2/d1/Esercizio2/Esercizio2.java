@@ -32,9 +32,6 @@ package u1.w2.d1.Esercizio2;
 			}
 			
 			
-		
-		
-		
 	public static void calcolaKmL(int km, int l) throws Exception {
 
 		if(l==0) {

@@ -9,12 +9,12 @@ public class Banca {
 		try {
 			ContoCorrente conto1 = new ContoCorrente("Grossi Mario", 20000.0);
 			System.out.println("Saldo conto: " + conto1.restituisciSaldo());
-			conto1.preleva(15000);
+			conto1.preleva(25000);
 
 			System.out.println("Saldo conto: " + conto1.restituisciSaldo());
 		} catch (BancaException e) {
-			System.out.println("Errore durante il prelievo: " + e);
-			System.out.println(e);
+			//System.out.println("Errore durante il prelievo: " + e);
+			//System.out.println(e);
 			e.printStackTrace();
 		} finally {
 			ContoCorrente.nMovimenti ++;
