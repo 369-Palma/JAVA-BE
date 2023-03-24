@@ -1,27 +1,41 @@
 package u1.w2.project;
 
+import java.util.Scanner;
 
 public class ArticoloBiblioteca {
-public String ISBN = ArticoloBiblioteca.generaISBN();
+public long ISBN;
 public static String titolo;
 public static int annoPublicazione;
 public int nPag;
 
-public ArticoloBiblioteca(String isbn, String titolo, int anno, int pages) {
+public ArticoloBiblioteca(long isbn, String titolo, int anno, int pages) {
 	this.ISBN = isbn;
 	ArticoloBiblioteca.titolo = titolo;
 	ArticoloBiblioteca.annoPublicazione = anno;
 	this.nPag = pages;
 }
 
-//genera codice isbn
-public static String generaISBN() {
-	return ArticoloBiblioteca.titolo + ArticoloBiblioteca.annoPublicazione;
+
+	public long getIsbn() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("*                                                                  *");
+		System.out.println("*  inserisci inserisci isbn  *");
+		System.out.println("*                                                                  *");
+		long isbn = scanner.nextLong();
+		return isbn;
+	}
+	
 }
+
+//genera codice isbn
+//public static String generaISBN() {
+//	return ArticoloBiblioteca.titolo + ArticoloBiblioteca.annoPublicazione ;
+//}
+
 
 //genera numero random
 //private static int generaRandom() {
 //	int randomNum = (int)Math.random()*101;
 //	return randomNum;
 //}
-}
+

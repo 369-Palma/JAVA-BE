@@ -12,7 +12,7 @@ public class Libro extends ArticoloBiblioteca {
 	
 			//costruttore
 	
-	public Libro(String isbn, String titolo, int anno, int pages, String autore, String genere) {
+	public Libro(long isbn, String titolo, int anno, int pages, String autore, String genere) {
 		super(isbn,titolo,anno,pages);
 		this.autore = autore;
 		this.genere = genere;

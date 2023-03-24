@@ -10,7 +10,7 @@ public class Rivista extends ArticoloBiblioteca {
 	public Periodicita periodicita;
 	
 	//costruttore 
-	public Rivista (String isbn, String titolo, int anno, int pages, Periodicita periodicita) {
+	public Rivista (long isbn, String titolo, int anno, int pages, Periodicita periodicita) {
 		super(isbn,titolo,anno,pages);
 		this.periodicita = periodicita;
 	}

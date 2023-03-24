@@ -12,18 +12,18 @@ private static List <ArticoloBiblioteca> listaTot;
 		
 		
 //libri
-	Libro l1 = new Libro(ArticoloBiblioteca.generaISBN(), "La storia infinita", 1993, 56, "Arthur nonLoso", "Fantasy");
-	Libro l2 = new Libro(ArticoloBiblioteca.generaISBN(), "La storia finita", 1995, 80, "Arthur nonLoso", "Fantasy");
-	Libro l3 = new Libro(ArticoloBiblioteca.generaISBN(), "Il signore degli anelli - le due torri", 2002, 256, "J. R. R. Tolkien", "Fantasy");
-	Libro l4 = new Libro(ArticoloBiblioteca.generaISBN(), "Non ne ho idea", 2021, 123, "Arthur nonLoso", "Horror");
-	Libro l5 = new Libro(ArticoloBiblioteca.generaISBN(), "Piccoli brividi", 2001, 321, "Arthur nonLoso", "Horror");
+	Libro l1 = new Libro(7575757656778l, "La storia infinita", 1993, 56, "Arthur nonLoso", "Fantasy");
+	Libro l2 = new Libro(3573743789967l, "La storia finita", 1995, 80, "Arthur nonLoso", "Fantasy");
+	Libro l3 = new Libro(6473973789967l, "Il signore degli anelli - le due torri", 2002, 256, "J. R. R. Tolkien", "Fantasy");
+	Libro l4 = new Libro(2573743789961l, "Non ne ho idea", 2021, 123, "Arthur nonLoso", "Horror");
+	Libro l5 = new Libro(3173712342467l, "Piccoli brividi", 2001, 321, "Arthur nonLoso", "Horror");
 	
 // Riviste
-	Rivista r1 = new Rivista(ArticoloBiblioteca.generaISBN(), "Cavalli e segugi", 1993, 36, Periodicita.SEMESTRALE);
-	Rivista r2 = new Rivista(ArticoloBiblioteca.generaISBN(), "Orti biodinamici", 2022, 25, Periodicita.MENSILE);
-	Rivista r3 = new Rivista(ArticoloBiblioteca.generaISBN(), "Sustainable Management", 2023, 52, Periodicita.SEMESTRALE);
-	Rivista r4 = new Rivista(ArticoloBiblioteca.generaISBN(), "Top of the tops", 2000, 23, Periodicita.SETTIMANALE);
-	Rivista r5 = new Rivista(ArticoloBiblioteca.generaISBN(), "Topogigio e i gatti", 1995, 20, Periodicita.SETTIMANALE);
+	Rivista r1 = new Rivista(34870287389927l, "Cavalli e segugi", 1993, 36, Periodicita.SEMESTRALE);
+	Rivista r2 = new Rivista(46927469883898l, "Orti biodinamici", 2022, 25, Periodicita.MENSILE);
+	Rivista r3 = new Rivista(34761974682634l, "Sustainable Management", 2023, 52, Periodicita.SEMESTRALE);
+	Rivista r4 = new Rivista(46888277199376l, "Top of the tops", 2000, 23, Periodicita.SETTIMANALE);
+	Rivista r5 = new Rivista(86548654653349l, "Topogigio e i gatti", 1995, 20, Periodicita.SETTIMANALE);
 	
 //lista con libri e articoli
 	
@@ -45,8 +45,8 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 	lista.add(creaElemento());
 	
 	//rimuovi per isbn
-	rimuoviPerISBN(ArticoloBiblioteca.generaISBN());
 	
+	rimuoviPerISBN(37287498628l);
 	
 	}
 	
@@ -99,7 +99,7 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 			System.out.println("*                                                                  *");
 			String genere = scanner.next();	
 			
-			String isbn = ArticoloBiblioteca.generaISBN();
+			long isbn = ArticoloBiblioteca.getIsbn();
 			
 			Libro lnew = new Libro(isbn, titolo,anno, pages, autore, genere);
 			
@@ -124,9 +124,8 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 				periodicita = Periodicita.SETTIMANALE;	
 			}
 			
-String isbn = ArticoloBiblioteca.generaISBN();
-			
-			Rivista rnew = new Rivista(isbn, titolo, anno, pages, periodicita);
+
+			Rivista rnew = new Rivista(ArticoloBiblioteca.getIsbn(), titolo, anno, pages, periodicita);
 			return rnew;			
 		
 		}
@@ -134,6 +133,7 @@ String isbn = ArticoloBiblioteca.generaISBN();
 	
 	}
 	
+	//ricevi isbn dall'utente
 private String getIsbn() {
 	Scanner scanner = new Scanner(System.in);
 	System.out.println("*                                                                  *");
@@ -146,9 +146,13 @@ private String getIsbn() {
 	
 	//rimuovi per isbn
 	
-	public static void rimuoviPerISBN(String isbn) {
-		listaTot.stream().filter(e->e.getIsbn() != isbn).collect(Collectors.toList());
+	public static void rimuoviPerISBN(long isbn) {
+		listaTot.stream()
+		.filter(e->e.getIsbn() != isbn)
+		.collect(Collectors.toList());
 	}
+	
+	//autore
 	
 	public static List <Libro> cercaPerAutore(String autore){
 		return listaTot.stream()
