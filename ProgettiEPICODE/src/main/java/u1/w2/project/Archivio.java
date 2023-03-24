@@ -99,9 +99,9 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 			System.out.println("*                                                                  *");
 			String genere = scanner.next();	
 			
-			long isbn = ArticoloBiblioteca.getIsbn();
+			//static long isbn = ArticoloBiblioteca.getIsbn();
 			
-			Libro lnew = new Libro(isbn, titolo,anno, pages, autore, genere);
+			Libro lnew = new Libro(ArticoloBiblioteca.getIsbn(), titolo,anno, pages, autore, genere);
 			
 			return lnew;
 			
@@ -148,25 +148,28 @@ private String getIsbn() {
 	
 	public static void rimuoviPerISBN(long isbn) {
 		listaTot.stream()
-		.filter(e->e.getIsbn() != isbn)
+		.filter(e->ArticoloBiblioteca.getIsbn() != isbn)
 		.collect(Collectors.toList());
 	}
 	
-	//autore
+	
+	
+	//ricerca per autore
 	
 	public static List <Libro> cercaPerAutore(String autore){
-		return listaTot.stream()
+		 listaTot.stream()
 		.filter(e -> {
 			if(e instanceof Libro) {
-				return ((Libro(e).getAutore().equals(auto);
+				((Libro(e).getAutore()
+						.equals(autore))
+						.collect(Collectors.toList());
+						
 			}
-			return false;
+			
 		})
 	   .map(e-> (Libro)e)
 	   .collect(Collectors.toList());
 				
-		
-			
 		
 	}
 	

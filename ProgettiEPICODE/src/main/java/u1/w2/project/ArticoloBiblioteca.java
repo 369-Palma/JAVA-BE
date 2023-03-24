@@ -16,7 +16,7 @@ public ArticoloBiblioteca(long isbn, String titolo, int anno, int pages) {
 }
 
 
-	public long getIsbn() {
+	public static long getIsbn() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("*                                                                  *");
 		System.out.println("*  inserisci inserisci isbn  *");
