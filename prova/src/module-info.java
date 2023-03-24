@@ -6,4 +6,5 @@
  *
  */
 module prova {
+	requires org.apache.commons.io;
 }
