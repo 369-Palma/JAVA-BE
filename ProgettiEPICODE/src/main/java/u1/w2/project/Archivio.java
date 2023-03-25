@@ -50,6 +50,9 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 	
 	rimuoviPerISBN(giveIsbn());
 	
+	//ricerca per isbn
+	cercaPerIsbn(giveIsbn());
+	
 	//recerca per anno
 	cercaPerAnno(giveAnno());
 	
