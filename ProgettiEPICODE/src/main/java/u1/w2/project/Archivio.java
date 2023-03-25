@@ -8,7 +8,9 @@ import java.util.stream.Stream;
 
 public class Archivio {
 private static List <ArticoloBiblioteca> listaTot;
+
 	public static <T> void main(String[] args) {
+		
 		
 		
 //libri
@@ -46,9 +48,15 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 	
 	//rimuovi per isbn
 	
-	rimuoviPerISBN(37287498628l);
+	rimuoviPerISBN(giveIsbn());
 	
+	//recerca per anno
+	cercaPerAnno(giveAnno());
+	
+	//ricerca per autore
+	cercaPerAutore(giveAutore());
 	}
+	
 	
 //FUNZIONI
 	
@@ -101,7 +109,7 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 			
 			//static long isbn = ArticoloBiblioteca.getIsbn();
 			
-			Libro lnew = new Libro(ArticoloBiblioteca.getIsbn(), titolo,anno, pages, autore, genere);
+			Libro lnew = new Libro(9875985874566l, titolo,anno, pages, autore, genere);
 			
 			return lnew;
 			
@@ -125,7 +133,7 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 			}
 			
 
-			Rivista rnew = new Rivista(ArticoloBiblioteca.getIsbn(), titolo, anno, pages, periodicita);
+			Rivista rnew = new Rivista(47654864764567l, titolo, anno, pages, periodicita);
 			return rnew;			
 		
 		}
@@ -134,46 +142,92 @@ List <ArticoloBiblioteca> lista = new ArrayList <ArticoloBiblioteca>();
 	}
 	
 	//ricevi isbn dall'utente
-private String getIsbn() {
+private static long giveIsbn() {
 	Scanner scanner = new Scanner(System.in);
 	System.out.println("*                                                                  *");
-	System.out.println("*  inserisci inserisci isbn (titolo+annopublicazione) *");
+	System.out.println("*  inserisci  isbn  *");
 	System.out.println("*                                                                  *");
-	String isbn = scanner.next();
+	long isbn = scanner.nextLong();
 	return isbn;
 }
-	
+
+//ricevi anno dall'utente
+private static int giveAnno() {
+	Scanner scanner = new Scanner(System.in);
+	System.out.println("*                                                                  *");
+	System.out.println("*  inserisci  anno di publicazione  *");
+	System.out.println("*                                                                  *");
+	int anno = scanner.nextInt();
+	return anno;
+}
 	
 	//rimuovi per isbn
 	
-	public static void rimuoviPerISBN(long isbn) {
-		listaTot.stream()
-		.filter(e->ArticoloBiblioteca.getIsbn() != isbn)
+	public static List <ArticoloBiblioteca> rimuoviPerISBN(long isbn) {
+		return listaTot.stream()
+		.filter(e->e.getIsbn() != isbn)
 		.collect(Collectors.toList());
 	}
 	
+	//ricerca per isbn
+	public static List <ArticoloBiblioteca> cercaPerIsbn(long isbn){
+		return listaTot.stream()
+		.filter(i -> i.getIsbn() == isbn)
+		.collect(Collectors.toList());
+	}
 	
+	//ricevi autore dall'utente
 	
+	private static String giveAutore() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("*                                                                  *");
+		System.out.println("*  inserisci autore *");
+		System.out.println("*                                                                  *");
+		String autore = scanner.next();
+		return autore;
+}
+	
+	//lista libri
+	public static List<ArticoloBiblioteca> listaLibri() {
+		return listaTot.stream()
+				.filter(el -> el.equals((Libro)el))
+				.collect(Collectors.toList());		
+		
+//		return listaLibri;
+	}
 	//ricerca per autore
 	
-	public static List <Libro> cercaPerAutore(String autore){
+//	public static List<ArticoloBiblioteca> cercaPerAutore(String autore){
+//	listaTot.stream()
+//		.filter(el -> el.equals((Libro)el))
+//		.collect(Collectors.toList());
+//	List<ArticoloBiblioteca> listaLibri = listaTot;			
+//		 listaLibri.filter(a -> a.getAutore() .equals(autore))
+//		.collect(Collectors.toList());
+//		return listaLibri;
+//	}
+	
+	public static List <Libro> cercaPerAutore (String autore){
 		 listaTot.stream()
 		.filter(e -> {
 			if(e instanceof Libro) {
 				((Libro(e).getAutore()
 						.equals(autore))
-						.collect(Collectors.toList());
-						
+						.collect(Collectors.toList()));						
 			}
 			
 		})
 	   .map(e-> (Libro)e)
 	   .collect(Collectors.toList());
-				
-		
 	}
-	
-	
+	//ricerca per anno di publicazione
+
+	public static List <ArticoloBiblioteca> cercaPerAnno(int anno){
+		listaTot.stream()
+		.filter(e->e.getAnnoPublicazione() == anno)
+		.collect(Collectors.toList());
+		return listaTot;						
+	}
 }
 	
 

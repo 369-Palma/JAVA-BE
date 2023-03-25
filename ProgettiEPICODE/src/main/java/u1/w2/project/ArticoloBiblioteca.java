@@ -1,6 +1,5 @@
 package u1.w2.project;
 
-import java.util.Scanner;
 
 public class ArticoloBiblioteca {
 public long ISBN;
@@ -16,14 +15,17 @@ public ArticoloBiblioteca(long isbn, String titolo, int anno, int pages) {
 }
 
 
-	public static long getIsbn() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("*                                                                  *");
-		System.out.println("*  inserisci inserisci isbn  *");
-		System.out.println("*                                                                  *");
-		long isbn = scanner.nextLong();
-		return isbn;
+	public long getIsbn() {				
+		return ISBN;
 	}
+
+
+	public int getAnnoPublicazione() {		
+		return annoPublicazione;
+	}
+
+
+	
 	
 }
 

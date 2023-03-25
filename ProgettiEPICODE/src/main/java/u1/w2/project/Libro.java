@@ -7,7 +7,7 @@ package u1.w2.project;
 // @AllArgsConstructor @ToString @Getter 
 public class Libro extends ArticoloBiblioteca {
 
-	private String autore;
+	public String autore;
 	private String genere;
 	
 			//costruttore
@@ -18,6 +18,10 @@ public class Libro extends ArticoloBiblioteca {
 		this.genere = genere;
 	}
 
+	//Getters - non funziona l'installazione di lombok quindi li devo scrivere io (meglio, così mi esercito)
 	
+	public String getAutore() {
+	return autore;
+	}
 	
 }
