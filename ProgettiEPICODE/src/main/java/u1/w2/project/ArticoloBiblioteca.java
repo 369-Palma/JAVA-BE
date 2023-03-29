@@ -26,7 +26,6 @@ public ArticoloBiblioteca(long isbn, String titolo, int anno, int pages) {
 
 
 	
-	
 }
 
 //genera codice isbn
