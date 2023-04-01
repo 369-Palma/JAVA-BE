@@ -1,0 +1,11 @@
+package model;
+
+public enum Genere {
+FANTASCIENZA,
+HORROR,
+AVVENTURA,
+ROMANZO,
+POLIZIESCO,
+DRAMMATICO,
+FANTASY
+}
