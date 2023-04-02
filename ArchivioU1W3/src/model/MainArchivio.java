@@ -16,11 +16,9 @@ public class MainArchivio {
 	public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ArchivioU1W3");
 	static EntityManager em = emf.createEntityManager();
 	
-	static ArrayList <Pubblicazione> archivio;
-	public static List <Pubblicazione> findAllPubblicazioni(){
-		Query q = em.createNamedQuery("Pubblicazioni.FindAll");
-		return q.getResultList();
-	}
+	//static ArrayList <Pubblicazione> archivio;
+	public static List <Pubblicazione> archivio = findAllPubblicazioni();
+	
 	public static void main(String[] args) {
 		
 		Libro libro = new Libro ();
@@ -37,7 +35,7 @@ public class MainArchivio {
 		rivista.setNumeroPagine(26);
 		rivista.setPeriodicita(Periodicita.MENSILE);
 	
-		archivio = new ArrayList <Pubblicazione> ();
+		//archivio = new ArrayList <Pubblicazione> ();
 		archivio.add(rivista);
 		archivio.add(libro);
 	
@@ -53,10 +51,21 @@ public class MainArchivio {
 //	Pubblicazione elementoLetto = findPubblicazioneByIsbn(2l);
 //	eliminaPubblicazione(elementoLetto);
 		
-//	List <Pubblicazione> lp = findAllPubblicazioni();
-//	lp.forEach(p-> System.out.println(p.getPubbByYear(1993)));
+	//	findByISBN(3l);
+	
 		//**********Ricerca per anno di pubblicazione************
-	List <Pubblicazione> anno= getPubbByYear(1993);
+//	archivio = getPubbByYear(2010);
+//	archivio.forEach(p -> System.out.println(p.getTitolo() + " " + p.getAnnoPublicazione()));
+//	
+		//**********Ricerca per autore************
+		
+//		List <Pubblicazione> listaPubb = getPubbByAuthor("J. R. R. Tolkien");
+//		listaPubb.forEach(p -> System.out.println(p.getAutore()));
+		
+		//**********Ricerca per titolo************
+//		archivio = getPubbByTitle("Cavalli");
+//		archivio.forEach(p -> System.out.println(p.getTitolo()));
+		
 	}
 	
 	
@@ -107,25 +116,63 @@ public static void aggiungiPubblicazione (Pubblicazione p) {
 		}
 	}
 	
-	//Cerco tutte le pubblicazioni
+	//Cerca tutte le pubblicazioni
 	
-	public static List <Pubblicazione> findAllPubblicazioni(){
-		Query q = em.createNamedQuery("Pubblicazioni.FindAll");
-		return q.getResultList();
+	@SuppressWarnings("unchecked")
+	public static List <Pubblicazione> findAllPubblicazioni(){		
+			Query q = em.createNamedQuery("Pubblicazioni.FindAll");	
+			System.out.println();
+			List <Pubblicazione> resultList = q.getResultList();
+			System.out.println(resultList);
+			return resultList;			
+	}
+	
+		
+	//Cerca per ISBN
+	@SuppressWarnings("unchecked")
+	public static List <Pubblicazione> findByISBN(Long isbn){		
+			Query q = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.ISBN = :id");
+			q.setParameter("id", isbn);
+			System.out.println(q);
+			return (List<Pubblicazione>) q.getSingleResult();			
 	}
 	
 	
+	// Cerca pubblicazioni per anno di pubblicazione
 	@SuppressWarnings("unchecked")
 	public static List <Pubblicazione> getPubbByYear(Integer anno){
 		try {
-		Query q = em.createQuery("SELECT v FROM v WHERE v.titolo = :year");
+		Query q = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.annoPubblicazione = :year");
 		q.setParameter("year", anno);
-		System.out.println(q);
-		return q.getResultList();
+		//List <Pubblicazione> resultListPubb = q.getResultList();
+		//System.out.println(resultList);
+		return q.getResultList();			
 	} catch(Exception ex) {
 		em.getTransaction().rollback();
 	}
-		return archivio; 
+		return null; 
 	}
-
+	
+	//cerca per autore
+	
+	@SuppressWarnings("unchecked")
+	public static List<Pubblicazione> getPubbByAuthor(String autore){
+		
+			//Query q = em.createQuery("SELECT p FROM p WHERE p.autore = :author");
+			Query q = em.createQuery("SELECT Libro FROM Pubblicazione l WHERE l.autore = :author");
+			q.setParameter("author", autore);
+			return q.getResultList();			
+	}
+	
+	//cerca per titolo
+	
+	@SuppressWarnings("unchecked")
+	public static List <Pubblicazione> getPubbByTitle(String title){
+		Query q = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.titolo LIKE :titolo" );
+		q.setParameter("titolo", "%" + title + "%");
+		return q.getResultList();
+	}
+	
+	
+	
 }

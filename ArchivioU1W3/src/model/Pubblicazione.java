@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 import ArchivioDEO.DEOarchivio;
 
-
 @NamedQuery(name = "Pubblicazioni.FindAll", query = "SELECT p FROM Pubblicazione p")
 @Entity @Table(name = "pubblicazioni")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -73,6 +72,8 @@ public abstract class Pubblicazione implements Serializable{
 		return "Pubblicazione [ISBN=" + ISBN + ", titolo=" + titolo + ", annoPublicazione=" + annoPublicazione
 				+ ", numeroPagine=" + numeroPagine + "]";
 	}
+
+
 	
 		
 	}
