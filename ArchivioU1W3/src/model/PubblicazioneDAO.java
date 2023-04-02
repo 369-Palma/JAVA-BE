@@ -12,6 +12,8 @@ public class PubblicazioneDAO implements DEOarchivio{
 	//implementazione metodi
 	
 	
+	public static List <Pubblicazione> archivio = findAllPubblicazioni();
+
 	public void aggiungiPubblicazione (Pubblicazione p) {
 	EntityManager em = JPA_util.getEntityManagerFactory().createEntityManager();
 		try {
@@ -61,7 +63,7 @@ public class PubblicazioneDAO implements DEOarchivio{
 	//Cerca tutte le pubblicazioni
 	
 
-	public List <Pubblicazione> findAllPubblicazioni(){	
+	public static List <Pubblicazione> findAllPubblicazioni(){	
 		EntityManager em = JPA_util.getEntityManagerFactory().createEntityManager();
 		try {		
 			Query q = em.createNamedQuery("Pubblicazioni.FindAll");	
@@ -117,6 +119,7 @@ public class PubblicazioneDAO implements DEOarchivio{
 	//cerca per autore
 	
 	
+	@SuppressWarnings("unchecked")
 	public static List<Pubblicazione> getPubbByAuthor(String autore){
 		EntityManager em = JPA_util.getEntityManagerFactory().createEntityManager();
 		try {	
@@ -148,7 +151,5 @@ public class PubblicazioneDAO implements DEOarchivio{
 		}
 		return null;
 	}
-
-
 
 }
