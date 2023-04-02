@@ -4,21 +4,26 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import lombok.Data;
-import lombok.ToString;
+import ArchivioDEO.DEOarchivio;
 
 
+@NamedQuery(name = "Pubblicazioni.FindAll", query = "SELECT p FROM Pubblicazione p")
 @Entity @Table(name = "pubblicazioni")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TipoPublicazione", discriminatorType = DiscriminatorType.STRING)
 
 public abstract class Pubblicazione implements Serializable{
+	
+	
+	
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Id
 	private Long ISBN;		
 	private String titolo;
 	private Integer annoPublicazione;
 	private Integer numeroPagine;
+	
+	//costruttori
 	
 	public Pubblicazione() {};
 	
@@ -30,6 +35,8 @@ public abstract class Pubblicazione implements Serializable{
 		
 	}
 
+	//getters e setters
+	
 	public Long getISBN() {
 		return ISBN;
 	}
@@ -59,13 +66,14 @@ public abstract class Pubblicazione implements Serializable{
 		this.numeroPagine = numeroPagine;
 	}
 
+	//toString
+	
 	@Override
 	public String toString() {
 		return "Pubblicazione [ISBN=" + ISBN + ", titolo=" + titolo + ", annoPublicazione=" + annoPublicazione
 				+ ", numeroPagine=" + numeroPagine + "]";
 	}
 	
-		
 		
 	}
 

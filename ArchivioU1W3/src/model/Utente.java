@@ -1,7 +1,9 @@
 //package model;
 //
 //import java.time.LocalDate;
+//import java.util.Set;
 //
+//import javax.persistence.CascadeType;
 //import javax.persistence.Entity;
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
@@ -13,15 +15,19 @@
 ////import lombok.Setter;
 //
 //// @Getter @Setter 
+//
+//
 //@Entity @Table(name = "utenti")
 //
-//public class Utente extends Pubblicazione{
-//	@GeneratedValue (strategy = GenerationType.IDENTITY)
+//public class Utente {
 //	
+//	//@OneToMany(mappedBy = "utenti", cascade = CascadeType.ALL)
+//	 @OneToMany(targetEntity=Prestito.class)
+//	private Set <Prestito> listaPrestiti;
 //	private String nome;
 //	private String cognome;
 //	private LocalDate dataNascita;
-//
+//@Id @GeneratedValue (strategy = GenerationType.IDENTITY)
 //	private Long numeroTessera;
 //
 //	
