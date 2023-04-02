@@ -102,6 +102,7 @@ public class PubblicazioneDAO implements DEOarchivio{
 	
 	// Cerca pubblicazioni per anno di pubblicazione
 	
+	@SuppressWarnings("unchecked")
 	public List <Pubblicazione> getPubbByYear(Integer anno){
 		EntityManager em = JPA_util.getEntityManagerFactory().createEntityManager();
 		try {

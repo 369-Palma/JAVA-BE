@@ -41,10 +41,15 @@ public class MainArchivio {
 	
 		
 		// **********Aggiungi elemento all'archivio************
+		
 		PubblicazioneDAO ap = new PubblicazioneDAO();
 		ap.aggiungiPubblicazione(rivista);
 		ap.aggiungiPubblicazione(libro);
 		
+		//**********Trova tutte le pubblicazioni************
+		
+		PubblicazioneDAO newPubb = new PubblicazioneDAO();
+		archivio = newPubb.getAll();
 		
 		// **********Rimuovi elemento dall'archivio************
 			
@@ -54,22 +59,23 @@ public class MainArchivio {
 		elementoLetto.findByISBN(3l);
 	
 		//**********Ricerca per anno di pubblicazione************
+		
 		PubblicazioneDAO elemLetto = new PubblicazioneDAO();
 		archivio = elemLetto.getPubbByYear(2010);
 		archivio.forEach(p -> System.out.println(p.getTitolo() + " " + p.getAnnoPublicazione()));
 
 		//**********Ricerca per autore************
+		
 		PubblicazioneDAO elemL = new PubblicazioneDAO();
 		List <Pubblicazione> listaPubb = elemL.getPubbByAuthor("J. R. R. Tolkien");
 		listaPubb.forEach(p -> System.out.println(p.getAutore()));
 		
 		//**********Ricerca per titolo************
+		
 		PubblicazioneDAO eL = new PubblicazioneDAO();
 		archivio = eL.getPubbByTitle("Cavalli");
 		archivio.forEach(p -> System.out.println(p.getTitolo()));
 		
 	}
-	
-	
 	
 }
