@@ -16,7 +16,7 @@ public class MainArchivio {
 	public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ArchivioU1W3");
 	static EntityManager em = emf.createEntityManager();
 	
-	static ArrayList <Pubblicazione> archivio;
+	static List<Pubblicazione> archivio;
 	//public static List <Pubblicazione> archivio = findAllPubblicazioni();
 	
 	public static void main(String[] args) {
@@ -47,24 +47,25 @@ public class MainArchivio {
 		
 		
 		// **********Rimuovi elemento dall'archivio************
-		
-	PubblicazioneDAO elementoLetto = new PubblicazioneDAO();
-	Pubblicazione p = elementoLetto.findPubblicazioneByIsbn(2l);
-	elementoLetto.eliminaPubblicazione(p);
-		
-		findByISBN(3l);
+			
+		PubblicazioneDAO elementoLetto = new PubblicazioneDAO();
+		Pubblicazione pubb = elementoLetto.findPubblicazioneByIsbn(2l);
+		elementoLetto.eliminaPubblicazione(pubb);		
+		elementoLetto.findByISBN(3l);
 	
 		//**********Ricerca per anno di pubblicazione************
-	archivio = getPubbByYear(2010);
-archivio.forEach(p -> System.out.println(p.getTitolo() + " " + p.getAnnoPublicazione()));
+		PubblicazioneDAO elemLetto = new PubblicazioneDAO();
+		archivio = elemLetto.getPubbByYear(2010);
+		archivio.forEach(p -> System.out.println(p.getTitolo() + " " + p.getAnnoPublicazione()));
 
 		//**********Ricerca per autore************
-		
-		List <Pubblicazione> listaPubb = getPubbByAuthor("J. R. R. Tolkien");
-	listaPubb.forEach(p -> System.out.println(p.getAutore()));
+		PubblicazioneDAO elemL = new PubblicazioneDAO();
+		List <Pubblicazione> listaPubb = elemL.getPubbByAuthor("J. R. R. Tolkien");
+		listaPubb.forEach(p -> System.out.println(p.getAutore()));
 		
 		//**********Ricerca per titolo************
-		archivio = getPubbByTitle("Cavalli");
+		PubblicazioneDAO eL = new PubblicazioneDAO();
+		archivio = eL.getPubbByTitle("Cavalli");
 		archivio.forEach(p -> System.out.println(p.getTitolo()));
 		
 	}

@@ -73,9 +73,9 @@ public abstract class Pubblicazione implements Serializable{
 				+ ", numeroPagine=" + numeroPagine + "]";
 	}
 
-
+	protected abstract char[] getAutore();
 	
-		
+	
 	}
 
 	

@@ -83,7 +83,7 @@ public class PubblicazioneDAO implements DEOarchivio{
 		
 	//Cerca per ISBN
 	
-	public static Object findByISBN(Long isbn){	
+	public Object findByISBN(Long isbn){	
 		EntityManager em = JPA_util.getEntityManagerFactory().createEntityManager();
 		try {	
 			Query q = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.ISBN = :id");
@@ -102,7 +102,7 @@ public class PubblicazioneDAO implements DEOarchivio{
 	
 	// Cerca pubblicazioni per anno di pubblicazione
 	
-	public static List <Pubblicazione> getPubbByYear(Integer anno){
+	public List <Pubblicazione> getPubbByYear(Integer anno){
 		EntityManager em = JPA_util.getEntityManagerFactory().createEntityManager();
 		try {
 		Query q = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.annoPubblicazione = :year");
@@ -120,7 +120,7 @@ public class PubblicazioneDAO implements DEOarchivio{
 	
 	
 	@SuppressWarnings("unchecked")
-	public static List<Pubblicazione> getPubbByAuthor(String autore){
+	public List<Pubblicazione> getPubbByAuthor(String autore){
 		EntityManager em = JPA_util.getEntityManagerFactory().createEntityManager();
 		try {	
 		//Query q = em.createQuery("SELECT p FROM p WHERE p.autore = :author");
@@ -138,7 +138,7 @@ public class PubblicazioneDAO implements DEOarchivio{
 	//cerca per titolo
 	
 	@SuppressWarnings("unchecked")
-	public static List <Pubblicazione> getPubbByTitle(String title){
+	public List <Pubblicazione> getPubbByTitle(String title){
 		EntityManager em = JPA_util.getEntityManagerFactory().createEntityManager();
 		try {	
 		Query q = em.createQuery("SELECT p FROM Pubblicazione p WHERE p.titolo LIKE :titolo" );
@@ -150,6 +150,13 @@ public class PubblicazioneDAO implements DEOarchivio{
 			em.close();
 		}
 		return null;
+	}
+
+
+	@Override
+	public List<Pubblicazione> getAll() {
+		List<Pubblicazione> archivio = findAllPubblicazioni();
+		return archivio;
 	}
 
 }
