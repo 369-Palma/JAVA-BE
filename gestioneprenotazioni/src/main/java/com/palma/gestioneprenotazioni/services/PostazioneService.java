@@ -13,7 +13,10 @@ import com.palma.gestioneprenotazioni.repository.PostazioneDaoRepository;
 @Service
 public class PostazioneService {
 	@Autowired private PostazioneDaoRepository repository;
+	
 	@Autowired @Qualifier("PostazioneSalaRiunioni") private ObjectProvider <Postazione> postazioneSRProvider;
+	@Autowired @Qualifier("PostazionePrivata") private ObjectProvider <Postazione> postazionePrivataProvider;
+	@Autowired @Qualifier("PostazioneOpenSpace") private ObjectProvider <Postazione> postazioneOpenSProvider;
 	
 	// Per creare nuove POSTAZIONI
 	
@@ -21,8 +24,13 @@ public class PostazioneService {
 		createPostazione(postazioneSRProvider.getObject());
 	}
 
-	
-	
+	public void createPostazionePrivata() {
+		createPostazione(postazionePrivataProvider.getObject());
+	}
+
+	public void createPostazioneOpenSpace() {
+		createPostazione(postazioneOpenSProvider.getObject());
+	}
 	
 	// ************JPA METHODS*************
 	
