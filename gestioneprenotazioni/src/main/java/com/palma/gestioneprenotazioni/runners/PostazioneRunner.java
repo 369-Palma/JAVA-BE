@@ -5,20 +5,19 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.palma.gestioneprenotazioni.services.EdificioService;
+import com.palma.gestioneprenotazioni.services.PostazioneService;
 
 @Component
-public class EdificioRunner implements ApplicationRunner{
-	
-@Autowired EdificioService edificioService;
+public class PostazioneRunner implements ApplicationRunner{
+
+	@Autowired PostazioneService postazioneService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("Wait for it...");
 		
-		//edificioService.createCustomBuilding();	
-		edificioService.createCustomBuilding2();
-		edificioService.createRandomBuilding();
+		postazioneService.createPostazioneSR();
+		
 	}
+	
 	
 }
