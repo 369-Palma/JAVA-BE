@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 
 @Entity
-@Table(name="postaioni")
+@Table(name="postazioni")
 public class Postazione {
 	
 	@Id
