@@ -4,7 +4,16 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
+
+@Getter
+@ToString
+@NoArgsConstructor
 
 // @NamedQuery(name = "Evento.findAll", query = "SELECT e FROM Evento e")
 @SuppressWarnings("serial")
@@ -55,48 +64,5 @@ public class Evento implements Serializable{
 //	
 	//METODI
 	//setters and getters 
-	public Long getId() {
-		return id;
-	}
-	
-	public String getTitolo() {
-		return titolo;
-	}
-	public void setTitolo(String titolo) {
-		this.titolo = titolo;
-	}
-	public LocalDate getDataEvento() {
-		return dataEvento;
-	}
-	public void setDataEvento(LocalDate localDate) {
-		this.dataEvento = localDate;
-	}
-	public String getDescrizione() {
-		return descrizione;
-	}
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
-	}
-	public TipoEvento getTipoEvento() {
-		return tipoEvento;
-	}
-	public void setTipoEvento(TipoEvento tipoEvento) {
-		this.tipoEvento = tipoEvento;
-	}
-	public Integer getNumeroMassimoPartecipanti() {
-		return numeroMassimoPartecipanti;
-	}
-	public void setNumeroMassimoPartecipanti(Integer numeroMassimoPartecipanti) {
-		this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
-	}
-
-	// toString
-	@Override
-	public String toString() {
-		return "Evento [id=" + id + ", titolo=" + titolo + ", dataEvento=" + dataEvento + ", descrizione=" + descrizione
-				+ ", tipoEvento=" + tipoEvento + ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti + "]";
-	}
-	
-	
 	
 }
