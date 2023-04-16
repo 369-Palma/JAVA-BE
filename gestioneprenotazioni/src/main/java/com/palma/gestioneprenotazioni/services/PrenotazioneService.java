@@ -1,5 +1,6 @@
 package com.palma.gestioneprenotazioni.services;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
@@ -16,8 +17,8 @@ public class PrenotazioneService {
 	
 	@Autowired @Qualifier("PrenotazioneCustom") private ObjectProvider <Prenotazione> randomPrenotazioneProvider;
 	
-	public void createPrenotazioneRandom() {
-		createPrenotazione(randomPrenotazioneProvider.getObject());
+	public void createPrenotazioneCustom() {
+		createPrenotazione(randomPrenotazioneProvider.getObject(true, LocalDate.of(2023, 04, 18)));
 	}
 	
 	// ************JPA METHODS*************

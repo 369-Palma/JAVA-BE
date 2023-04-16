@@ -36,7 +36,7 @@ public class MainRunner implements ApplicationRunner{
 		utenteService.createUtenteRandom();
 		
 		//PRENOTAZIONI
-		prenotazioneService.createPrenotazioneRandom();
+		prenotazioneService.createPrenotazioneCustom();
 	}
 	
 }
