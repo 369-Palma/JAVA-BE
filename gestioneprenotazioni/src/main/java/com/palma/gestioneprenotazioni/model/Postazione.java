@@ -4,6 +4,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,6 +35,9 @@ public class Postazione {
 	private Integer numeroMax;
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Edificio edificio;
+	@ManyToOne
+	private Prenotazione prenotazione;
+	
 	
 	//costruttore con tutti gli argomenti tranne l'id
 	public Postazione(String descrizione, TipoPostazione tipo, Integer numeroMax, Edificio edificio) {

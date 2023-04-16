@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,8 +22,10 @@ public class Prenotazione {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Boolean prenotato;
+	@Builder.Default
+	private Boolean prenotato = false;
 	private LocalDate data;
+	private Integer giornoPrenotazione;
 	@ManyToOne
 	private Utente utente;
 	@OneToMany(mappedBy = "postazione")

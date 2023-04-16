@@ -12,4 +12,7 @@ public interface EdificioDaoRepository extends CrudRepository <Edificio, Long>{
 	
 	//Ricerca Edificio per città
 	//public List<Edificio> findByCity(String city);
+	
+	//Ricerca per tipo di postazione
+	//public List<Postazione> findByType(TipoPostazione tipo);
 }

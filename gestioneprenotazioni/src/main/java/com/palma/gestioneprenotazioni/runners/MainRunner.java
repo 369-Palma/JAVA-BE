@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.palma.gestioneprenotazioni.services.EdificioService;
 import com.palma.gestioneprenotazioni.services.PostazioneService;
+import com.palma.gestioneprenotazioni.services.PrenotazioneService;
 import com.palma.gestioneprenotazioni.services.UtenteService;
 
 @Component
@@ -15,6 +16,7 @@ public class MainRunner implements ApplicationRunner{
 @Autowired EdificioService edificioService;
 @Autowired PostazioneService postazioneService;
 @Autowired UtenteService utenteService;
+@Autowired PrenotazioneService prenotazioneService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -32,6 +34,9 @@ public class MainRunner implements ApplicationRunner{
 		
 		//UTENTI
 		utenteService.createUtenteRandom();
+		
+		//PRENOTAZIONI
+		prenotazioneService.createPrenotazioneRandom();
 	}
 	
 }
