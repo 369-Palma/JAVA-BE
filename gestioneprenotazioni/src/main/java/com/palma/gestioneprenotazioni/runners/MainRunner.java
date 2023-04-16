@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import com.palma.gestioneprenotazioni.model.TipoPostazione;
 import com.palma.gestioneprenotazioni.services.EdificioService;
 import com.palma.gestioneprenotazioni.services.PostazioneService;
 import com.palma.gestioneprenotazioni.services.PrenotazioneService;
@@ -38,12 +39,12 @@ public class MainRunner implements ApplicationRunner{
 		//PRENOTAZIONI
 		prenotazioneService.createPrenotazioneCustom();
 		
-		
+	
 		//RICERCA PER CITTA'
 		edificioService.findByCity("Bari").forEach(e -> System.out.println(e));
 				
 		//RICERCA PER TIPO DI POSTAZIONE
-		
+		postazioneService.findPostazionePerTipo(TipoPostazione.SALA_RIUNIONI).forEach(p->System.out.println(p));
 	}
 	
 }

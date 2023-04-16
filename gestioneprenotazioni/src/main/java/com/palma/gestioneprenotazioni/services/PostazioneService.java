@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.palma.gestioneprenotazioni.model.Postazione;
+import com.palma.gestioneprenotazioni.model.TipoPostazione;
 import com.palma.gestioneprenotazioni.repository.PostazioneDaoRepository;
 
 @Service
@@ -38,6 +39,13 @@ public class PostazioneService {
 	private void createPostazione(Postazione postazione) {
 		repository.save(postazione);
 		System.out.println("Postazione aggiunta correttamente!");
+	}
+	
+	
+	//ricerca Postazione per tipo
+	
+	public List <Postazione> findPostazionePerTipo(TipoPostazione tipo){
+		return repository.findByTipo(tipo);
 	}
 	
 	//leggere oggetto con un id specifico

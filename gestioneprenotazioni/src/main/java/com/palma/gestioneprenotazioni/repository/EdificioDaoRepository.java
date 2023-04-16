@@ -19,6 +19,5 @@ public interface EdificioDaoRepository extends CrudRepository <Edificio, Long>{
 //@Query(value="SELECT e FROM Edificio E WHERE E.citta IN ('Bari')") 
 	//public List<Edificio> findByCittaInB();
 	
-	//Ricerca per tipo di postazione
-	//public List<Postazione> findByType(TipoPostazione tipo);
+
 }
