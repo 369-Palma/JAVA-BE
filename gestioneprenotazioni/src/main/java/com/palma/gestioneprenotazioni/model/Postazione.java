@@ -1,5 +1,7 @@
 package com.palma.gestioneprenotazioni.model;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,8 +38,8 @@ public class Postazione {
 	private Integer numeroMax;
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Edificio edificio;
-	@ManyToOne
-	private Prenotazione prenotazione;
+	@OneToMany(mappedBy = "postazione")
+	private List <Prenotazione> prenotazioni;
 	
 	
 	//costruttore con tutti gli argomenti tranne l'id

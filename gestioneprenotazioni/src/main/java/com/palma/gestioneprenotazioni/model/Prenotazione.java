@@ -3,6 +3,7 @@ package com.palma.gestioneprenotazioni.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +29,6 @@ public class Prenotazione {
 	private Integer giornoPrenotazione;
 	@ManyToOne
 	private Utente utente;
-	@OneToMany(mappedBy = "postazione")
-	private List <Prenotazione> prenotazioni;
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Postazione postazione;
 }

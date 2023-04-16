@@ -15,10 +15,10 @@ import com.palma.gestioneprenotazioni.model.Utente;
 @PropertySource("classpath:application.properties")
 public class PrenotazioneConfiguration {
 	@Bean("PrenotazioneCustom")
-	@Scope("request")
+	@Scope("prototype")
 	public Prenotazione prenotazioneCustom(Utente u, Boolean prenotato, LocalDate data, Integer giorno) {
 		Prenotazione p = new Prenotazione();
-		p.setPrenotato(!prenotato);
+		p.setPrenotato(prenotato);
 		p.setData(data);
 		p.setGiornoPrenotazione(p.getGiornoPrenotazione()+1);
 		//p.setPrenotazioni(p.getPrenotazioni().add(postazione));;
