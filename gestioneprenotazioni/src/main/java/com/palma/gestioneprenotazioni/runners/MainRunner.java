@@ -37,6 +37,13 @@ public class MainRunner implements ApplicationRunner{
 		
 		//PRENOTAZIONI
 		prenotazioneService.createPrenotazioneCustom();
+		
+		
+		//RICERCA PER CITTA'
+		edificioService.findByCity("Bari").forEach(e -> System.out.println(e));
+				
+		//RICERCA PER TIPO DI POSTAZIONE
+		
 	}
 	
 }

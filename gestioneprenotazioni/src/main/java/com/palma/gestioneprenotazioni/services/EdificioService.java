@@ -42,6 +42,13 @@ public void createBuilding(Edificio edificio) {
 	System.out.println("Edificio aggiunto correttamente!");
 }
 
+
+//ricerca per città
+public List <Edificio> findByCity(String city) {
+	return r.findByCitta(city);
+}
+
+
 //leggere oggetto con un id specifico
 
 public Edificio findBuildingById(Long id) {
