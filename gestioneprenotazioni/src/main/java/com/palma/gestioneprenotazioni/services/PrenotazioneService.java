@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.palma.gestioneprenotazioni.model.Postazione;
 import com.palma.gestioneprenotazioni.model.Prenotazione;
 import com.palma.gestioneprenotazioni.repository.PrenotazioneDaoRepository;
 
@@ -20,6 +21,8 @@ public class PrenotazioneService {
 	public void createPrenotazioneCustom() {
 		createPrenotazione(randomPrenotazioneProvider.getObject(true, LocalDate.of(2023, 04, 18)));
 	}
+	
+	
 	
 	// ************JPA METHODS*************
 	

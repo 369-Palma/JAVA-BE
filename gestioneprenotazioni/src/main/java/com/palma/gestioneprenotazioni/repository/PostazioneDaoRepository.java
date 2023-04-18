@@ -12,5 +12,5 @@ public interface PostazioneDaoRepository extends CrudRepository <Postazione, Lon
 
 //Ricerca per tipo di postazione
  public List<Postazione> findByTipo(TipoPostazione tipo);
-	
+
 }

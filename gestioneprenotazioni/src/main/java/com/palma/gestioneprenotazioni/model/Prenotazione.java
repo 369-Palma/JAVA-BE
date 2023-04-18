@@ -31,8 +31,13 @@ public class Prenotazione {
 	private Boolean prenotato = false;
 	private LocalDate data;
 	private Integer giornoPrenotazione;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Utente utente;
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Postazione postazione;
 }
+
+
+
+	
+
