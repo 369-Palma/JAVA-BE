@@ -1,6 +1,9 @@
 package com.palma.gestioneprenotazioni.repository;
 
 import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,5 +22,9 @@ public interface EdificioDaoRepository extends CrudRepository <Edificio, Long>{
 //@Query(value="SELECT e FROM Edificio E WHERE E.citta IN ('Bari')") 
 	//public List<Edificio> findByCittaInB();
 	
-
+	//Ricerca Edificio per città pageable
+		public Page<Edificio> findByCitta(String city, Pageable pageable);
+	
+		
+	public boolean existsByIndirizzo(String indirizzo);
 }

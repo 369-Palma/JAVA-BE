@@ -5,10 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.palma.gestioneprenotazioni.model.Utente;
 import com.palma.gestioneprenotazioni.repository.UtenteDaoRepository;
+
+import jakarta.persistence.EntityExistsException;
 
 @Service
 public class UtenteService {
@@ -23,9 +28,14 @@ public class UtenteService {
 	// ************JPA METHODS*************
 	
 		///aggiungere oggetto
-		private void createUtente(Utente u) {
+		public Utente createUtente(Utente u) {
+			if(repository.existsByEmail(u.getEmail())) {
+				throw new EntityExistsException("This email already exist!!!");
+			} else {
 			repository.save(u);
-			System.out.println("Utente aggiunto correttamente!");
+			//System.out.println("Utente aggiunto correttamente!");
+			}
+			return u;
 		}
 		
 		//leggere oggetto con un id specifico
@@ -36,23 +46,40 @@ public class UtenteService {
 
 		//leggere una lista
 
-		public List <Utente> findAllPostazioni() {
-			return  (List<Utente>) repository.findAll();
+		public List <Utente> findAllUtenti() {
+			return (List<Utente>) repository.findAll();
+		}
+		
+		//tutti gli utenti paginati
+		
+		public Page <Utente> findAllUtentiPaginable(Pageable pageable) {
+			return (Page<Utente>) repository.findAll(pageable);
 		}
 
 		//rimuovere un oggetto con uno specifico id
 
-		public void removeUtente(Utente u) {
-			repository.delete(u);
-			System.out.println("Utente eliminato correttamente!");
+		public String removeUtente(Long id) {
+			if(!repository.existsById(id)) {
+				throw new EntityExistsException("L'utente non esiste!");
+			} else {
+			repository.deleteById(id);
+			//System.out.println("Utente eliminato correttamente!");
+			}			
+			return "L'utente indicato è stato rimosso!";			
 		}
 
 		//aggiornare un oggetto
 
-		public void updateUtente(Utente u) {
+		public Utente updateUtente(Utente u) {
+			if(!repository.existsById(u.getId())) {
+				throw new EntityExistsException("L'utente non esiste!");
+			} else {
 			repository.save(u);
-			System.out.println("Aggiornamento dati dell' utente completato!");
+			//System.out.println("Aggiornamento dati dell' utente completato!");
+			return u;
+			}
 		}
+		
 
 	}
 
