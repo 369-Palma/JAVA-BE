@@ -6,11 +6,14 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import com.palma.gestione_dispositivi.services.DipendenteService;
+import com.palma.gestione_dispositivi.services.DispositivoService;
 
 @Component
 public class MainRunner implements ApplicationRunner{
 
 	@Autowired DipendenteService dipendenteService;
+	
+	@Autowired DispositivoService dispositivoService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -18,10 +21,18 @@ public class MainRunner implements ApplicationRunner{
 		
 	//DIPENDENTI
 	
-		//creo nuovo dipendente
 		
+		//creo nuovi dispositivi
+		dispositivoService.createNewSmartphone();
+		dispositivoService.createNewTablet();
+		dispositivoService.createNewLaptop();
+		
+		//creo nuovo dipendente
 		dipendenteService.createDipendenteRandom();
 		//dipendenteService.createDipendenteAdmin();
-	}
+		
+		
+		
 
+	}
 }

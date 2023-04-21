@@ -17,6 +17,7 @@ public class DipendenteService {
 	
 	@Autowired @Qualifier("RandomDipendente") private ObjectProvider <Dipendente> randomUtenteProvider;
 	@Autowired @Qualifier("AdminDipendente") private ObjectProvider <Dipendente> adminUtenteProvider;
+	
 	//creo dipendente
 	public void createDipendenteRandom() {
 		createDipendente(randomUtenteProvider.getObject());
