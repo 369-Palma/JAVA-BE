@@ -2,6 +2,7 @@ package com.palma.gestione_dispositivi.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,7 +23,9 @@ public class Dispositivo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false)
+	@Enumerated
 	private TipoDispositivo tipo;
 	@Column(nullable = false)
+	@Enumerated
 	private Stato stato;
 }
