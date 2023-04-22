@@ -13,7 +13,7 @@ import jakarta.persistence.EntityExistsException;
 @Service
 public class DispositivoService {
 	
-	@Autowired DispositivoDaoRepository repo;
+	@Autowired DispositivoDaoRepository repository;
 	@Autowired @Qualifier("Smartphone") private ObjectProvider <Dispositivo> smartphoneProvider;
 	@Autowired @Qualifier("Tablet") private ObjectProvider <Dispositivo> tabletProvider;
 	@Autowired @Qualifier("Laptop") private ObjectProvider <Dispositivo> laptopProvider;
@@ -35,13 +35,9 @@ public class DispositivoService {
 	
 			//aggiungi 
 			public Dispositivo createDispositivo(Dispositivo d) {
-				repo.save(d);
+				repository.save(d);
 				System.out.println("Dispositivo aggiunto!");
 				return d;
 			}
-			
-	
-		
-	
 	
 }

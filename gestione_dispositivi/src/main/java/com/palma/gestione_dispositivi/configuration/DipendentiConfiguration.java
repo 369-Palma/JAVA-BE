@@ -1,4 +1,4 @@
-package com.palma.gestione_dispositivi.configurazione;
+package com.palma.gestione_dispositivi.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
