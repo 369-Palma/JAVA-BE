@@ -14,6 +14,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.palma.gestione_dispositivi.auth.payload.ErrorDetails;
 
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +24,17 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    // handle specific exceptions
+	@ExceptionHandler(EntityExistsException.class)
+	ResponseEntity<String> manageEntityExistsException(EntityExistsException e) {
+		return new ResponseEntity<String>(e.getMessage(), HttpStatus.FOUND);
+	}
+	
+	@ExceptionHandler(EntityNotFoundException.class)
+	ResponseEntity<String> manageEntityNotFoundException(EntityNotFoundException e) {
+		return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+	}
+	
+    // handle specific exceptions --> for security
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException exception,
                                                                         WebRequest webRequest){
@@ -61,6 +74,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
+   
 //    @ExceptionHandler(MethodArgumentNotValidException.class)
 //    public ResponseEntity<Object> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception,
 //                                                                        WebRequest webRequest){
