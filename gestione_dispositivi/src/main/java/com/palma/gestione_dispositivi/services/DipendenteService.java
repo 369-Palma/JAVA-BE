@@ -50,9 +50,9 @@ public class DipendenteService {
 			return (List<Dipendente>) repo.findAll();
 		}
 		
-//		public Page<Dipendente> getAllDipendentePageable(Pageable pageable) {
-//			return (Page<Dipendente>) repoPageable.findAll(pageable);
-//		}
+		public Page<Dipendente> getAllDipendentiPageable(Pageable pageable) {
+			return (Page<Dipendente>) repo.findAll(pageable);
+		}
 		
 		public Dipendente getDipendente(Long id) {
 			if(!repo.existsById(id)) {
@@ -60,8 +60,7 @@ public class DipendenteService {
 			}
 			return repo.findById(id).get();
 		}
-		
-		
+				
 		public String removeDipendente(Long id) {
 			if(!repo.existsById(id)) {
 				throw new EntityExistsException("Dipendente not exists!");

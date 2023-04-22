@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.palma.gestione_dispositivi.model.Dispositivo;
@@ -47,9 +49,9 @@ public class DispositivoService {
 				return (List<Dispositivo>) repository.findAll();
 			}
 			
-//			public Page<Dispositivo> getAllDispositivoPageable(Pageable pageable) {
-//				return (Page<Dispositivo>) repositoryPageable.findAll(pageable);
-//			}
+			public Page<Dispositivo> getAllDispositivoPageable(Pageable pageable) {
+				return (Page<Dispositivo>) repository.findAll(pageable);
+			}
 			
 			public Dispositivo getDispositivo(Long id) {
 				if(!repository.existsById(id)) {
