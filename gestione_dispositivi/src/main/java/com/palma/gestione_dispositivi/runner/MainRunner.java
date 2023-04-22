@@ -21,13 +21,13 @@ public class MainRunner implements ApplicationRunner{
 	//DIPENDENTI
 			
 		//creo nuovi dispositivi
-		dispositivoService.createNewSmartphone();
-		dispositivoService.createNewTablet();
-		dispositivoService.createNewLaptop();
+//		dispositivoService.createNewSmartphone();
+//		dispositivoService.createNewTablet();
+//		dispositivoService.createNewLaptop();
 		
 		//creo nuovo dipendente
 		dipendenteService.createDipendenteRandom();
-		dipendenteService.createDipendenteAdmin();
+		// dipendenteService.createDipendenteAdmin();
 		
 	}
 }

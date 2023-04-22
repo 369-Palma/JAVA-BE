@@ -1,5 +1,8 @@
 package com.palma.gestione_dispositivi.model;
 
+import java.util.List;
+
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,5 +22,10 @@ public class Dipendente {
 	private String fullname;
 	@Column(nullable = false, unique = true)
 	private String email;
+	
+	@OneToMany(mappedBy = "dipendente", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	//@JoinColumn(name = "id_dipendente", referencedColumnName = "dipendente Id")
+	// @JsonIgnoreProperties("dispositivi")
+	private List <Dispositivo> dispositivi;
 	
 }
