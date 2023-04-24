@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "3fe503eb-150f-4f97-952e-cbd8fe452824",
+		"name": "gestione_dispositivi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26072682"
+	},
+	"item": [
+		{
+			"name": "Dipendente",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9066/api/dipendente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dipendente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9066/api/dipendente/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dipendente",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"pippo.martini\",\r\n    \"fullname\": \"Tancredi D'amico\",\r\n    \"email\": \"pippo.tancredi@yahoo.it\",\r\n    \"dispositivi\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9066/api/dipendente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dipendente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9066/api/dipendente/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dipendente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pinco.pallo@gmail.it\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9066/api/dipendente/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dipendente",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9066/api/dipendente/pageable?page=0&size=5&sort=\"fullname\" , ASC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dipendente",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "\"fullname\" , ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dispositivo",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9066/api/dispositivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dispositivo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9066/api/dispositivo/300",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dispositivo",
+								"300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All pageable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9066/api/dispositivo/pageable?page=0&size=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dispositivo",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo\": \"laptop\",\r\n    \"stato\": \"IN_MANUTENZIONE\",\r\n    \"dipendente\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9066/api/dispositivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9066",
+							"path": [
+								"api",
+								"dispositivo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": []
+		}
+	]
+}

@@ -18,16 +18,16 @@ public class MainRunner implements ApplicationRunner{
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Wait for it...");
 		
-	//DIPENDENTI
-			
+	//DISPOSITIVI			
 		//creo nuovi dispositivi
-//		dispositivoService.createNewSmartphone();
-//		dispositivoService.createNewTablet();
-//		dispositivoService.createNewLaptop();
+		dispositivoService.createNewSmartphone();
+		dispositivoService.createNewTablet();
+		dispositivoService.createNewLaptop();
 		
+	//DIPENDENTI	
 		//creo nuovo dipendente
 		dipendenteService.createDipendenteRandom();
-		// dipendenteService.createDipendenteAdmin();
+		dipendenteService.createDipendenteAdmin();
 		
 	}
 }
