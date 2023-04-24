@@ -1,5 +1,7 @@
 package com.palma.gestioneprenotazioni.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +23,8 @@ public class Edificio {
 	private String nome;
 	private String indirizzo;
 	private String citta;
-	@Convert(converter = CreditCardConverter.class)
+	@Column(nullable = false, length = 8)
+	@Convert(converter = SecretCodeConverter.class)
 	private String secretCode;
 
 	//costruttore con tutti gli argomenti tranne l'id
