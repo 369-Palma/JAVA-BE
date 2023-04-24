@@ -21,6 +21,8 @@ public class Edificio {
 	private String nome;
 	private String indirizzo;
 	private String citta;
+	@Convert(converter = CreditCardConverter.class)
+	private String secretCode;
 
 	//costruttore con tutti gli argomenti tranne l'id
 	
