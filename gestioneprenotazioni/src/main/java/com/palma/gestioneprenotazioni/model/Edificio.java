@@ -24,7 +24,7 @@ public class Edificio {
 	private String indirizzo;
 	private String citta;
 	@Column(nullable = false, length = 8)
-	@Convert(converter = SecretCodeConverter.class)
+	@Convert(converter = com.palma.gestioneprenotazioni.configuration.SecretCodeConverter.class)
 	private String secretCode;
 
 	//costruttore con tutti gli argomenti tranne l'id
