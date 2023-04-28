@@ -1,0 +1,40 @@
+Ho eseguito i seguenti comandi:
+git init --> ho creato repo locale nel workspace dove c'è il progetto "gestioneprenotazioni".
+git branch -M main --> ho creato il branch principale main
+
+git remote add origin https://github.com/369-Palma/gestione_prenotazioni.git --> creato il collegamneto con la mia remote repository
+
+git status --> o controllato lo stato della repo
+git add. --> ho aggiunto tutti i file 
+git commit -m  'salvo file nella repository'--> ho fatto il mio primo commit
+git branch develop --> creato nuovo branch chiamato develop
+
+$ git branch -->  controllo i branch presenti
+  develop
+* main
+
+Palma@LAPTOP-3PMLTNBS MINGW64 ~/Desktop/EPICODE/JAVA-BE/gestioneprenotazioni (main)
+$ git checkout develop --> Switched to branch 'develop'
+
+git checkout -b feature/prove-comandi-git --> creato new branch 'feature/prove-comandi-git'e mi ci sono spostata
+
+//aggiungo questo file sul branch feature/prove-comandi-git
+Palma@LAPTOP-3PMLTNBS MINGW64 ~/Desktop/EPICODE/JAVA-BE/gestioneprenotazioni (feature/prove-comandi-git)
+$ git add .
+
+Palma@LAPTOP-3PMLTNBS MINGW64 ~/Desktop/EPICODE/JAVA-BE/gestioneprenotazioni (feature/prove-comandi-git)
+$ git status
+On branch feature/prove-comandi-git
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Prova comandi git.txt
+
+//effettuo un push 
+git merge feature/prove-comandi-git
+
+git checkout develop --> mi sposto sul branch develop
+git push -u origin feature/prove-comandi-git
+
+
+
+
