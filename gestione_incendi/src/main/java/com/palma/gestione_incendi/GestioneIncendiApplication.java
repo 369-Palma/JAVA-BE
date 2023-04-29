@@ -3,7 +3,7 @@ package com.palma.gestione_incendi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.palma.gestione_incendi.design.observer.Sonda;
+import com.palma.gestione_incendi.design.patterns.Sonda;
 
 @SpringBootApplication
 public class GestioneIncendiApplication {

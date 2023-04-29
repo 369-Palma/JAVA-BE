@@ -1,4 +1,4 @@
-package com.palma.gestione_incendi.design.observer;
+package com.palma.gestione_incendi.design.patterns;
 
 import java.util.ArrayList;
 import java.util.List;
